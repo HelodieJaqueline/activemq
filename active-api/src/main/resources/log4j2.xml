@@ -20,44 +20,21 @@
 		</Console>
 
 		<!-- ERROR 日志 -->
-		<RollingFile name="ERROR-FILE" fileName="/data/logs/${FILE_NAME}-error.log"
-					 filePattern="/data/logs/${FILE_NAME}-error-%d{yyyy-MM-dd}.log.gz">
-			<ThresholdFilter level="error" onMatch="ACCEPT"
-							 onMismatch="DENY" />
+		<RollingFile name="ERROR-FILE" fileName="/data/logs/${FILE_NAME}-error.log" filePattern="/data/logs/${FILE_NAME}-error-%d{yyyy-MM-dd}.log.gz">
+			<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
 			<PatternLayout pattern="${LOG_PATTERN}" />
 			<Policies>
-				<TimeBasedTriggeringPolicy modulate="true"
-										   interval="1" />
+				<TimeBasedTriggeringPolicy modulate="true" interval="1" />
 			</Policies>
 		</RollingFile>
 
 		<!-- log 日志 -->
-		<RollingFile name="LOG-File" fileName="/data/logs/${FILE_NAME}.log"
-					 filePattern="/data/logs/${FILE_NAME}-%d{yyyy-MM-dd}.log.gz">
+		<RollingFile name="LOG-File" fileName="/data/logs/${FILE_NAME}.log" filePattern="/data/logs/${FILE_NAME}-%d{yyyy-MM-dd}.log.gz">
 			<PatternLayout pattern="${LOG_PATTERN}" />
 			<Policies>
-				<TimeBasedTriggeringPolicy modulate="true"
-										   interval="1" />
+				<TimeBasedTriggeringPolicy modulate="true" interval="1" />
 			</Policies>
 		</RollingFile>
-
-		<!-- flume 配置 -->
-<!--		<Flume name="FlumeAppender" compress="false" type="Avro">
-			<Agent host="collect.gdog.ysten.com" port="41414" />
-			<Filters>&lt;!&ndash; 组合filter使用，一个控制日志级别，一个控制日志输出的量 &ndash;&gt;
-				<BurstFilter level="error" rate="20" maxBurst="100"/>
-				<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
-			</Filters>
-			&lt;!&ndash;<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" /> &ndash;&gt; &lt;!&ndash;只输出error以上级别  &ndash;&gt;
-			&lt;!&ndash; <BurstFilter level="error" rate="20" maxBurst="100"/> &ndash;&gt;  &lt;!&ndash; 控制日志输出数量 rate：每秒平均事件数； &ndash;&gt;
-			<PatternLayout pattern="${LOG_PATTERN}" />
-		</Flume>
-
-		&lt;!&ndash; 异步配置 &ndash;&gt;
-		<Async name="Async">
-			<AppenderRef ref="FlumeAppender" />
-		</Async>-->
-
 	</appenders>
 
 	<loggers>

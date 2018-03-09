@@ -5,13 +5,14 @@
 
 	<groupId>com.zhangrui.activemq</groupId>
 	<artifactId>activemq</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>1.0</version>
+	<packaging>pom</packaging>
     <modules>
         <module>active-domain</module>
         <module>active-repository</module>
         <module>active-service</module>
         <module>active-api</module>
+		<module>active-utils</module>
     </modules>
 	<name>activemq</name>
 	<description>Demo project for ActiveMQ</description>
@@ -96,6 +97,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.38</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>
