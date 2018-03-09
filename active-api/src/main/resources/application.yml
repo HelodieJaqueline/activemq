@@ -1,9 +1,8 @@
 spring:
-  #数据源配置
   datasource:
-    url: jdbc:mysql://192.168.50.134:3306/taipan_js?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
+    url: jdbc:mysql://192.168.43.66:3306/taipan_js?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
     username: root
-    password: ysten123
+    password: zr@123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -24,7 +23,7 @@ spring:
                        loginUsername: druid
                        loginPassword: druid
 
-  #redis配置
+  #redis
   redis:
     host: localhost
     port: 6379
@@ -35,14 +34,12 @@ spring:
       testOnBorrow: true
       testOnReturn: true
 
-  # 发版时配置好上线后不再修改
   thymeleaf:
     encoding: UTF-8
     content-type: text/html
     mode: HTML5
     cache: false
 
-    # 发版时配置好上线后不再修改
   mvc:
     view:
       prefix: /templates/
@@ -53,10 +50,6 @@ logging:
     config: classpath:log4j2.xml
 
 server:
-  # 端口
-  port: 8082
-  # 上下文路径
-  context-path: /yst-lbss-api
+  port: 8080
+  context-path: /active-api
 
-systemParameters:
-  mode: normal
