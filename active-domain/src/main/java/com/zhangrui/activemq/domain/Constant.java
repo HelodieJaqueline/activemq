@@ -1,6 +1,9 @@
 package com.zhangrui.activemq.domain;
 
-public interface Constant {
+import lombok.Data;
 
-    String SUCCESS = "成功";
+@Data
+public class Constant {
+
+    public static final String SUCCESS = "成功";
 }
